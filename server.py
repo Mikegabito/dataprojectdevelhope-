@@ -524,7 +524,45 @@ def show_menu():
     print("\n--- Extra ---")
     print("N. NumPy Probability Homework")
 
+    print ("\n--- Extra ---")
+    print("D. Pandas DataFrames EDA (Panda folder)")
+
     print("\n0. Exit")
+
+def show_pandas_menu():
+    print("\n=== PANDAS DATAFRAMES EDA (PANDA FOLDER) ===")
+    print("1. Person 1 - Data Loading & Understanding")
+    print("2. Person 2 - Conditional Probability")
+    print("3. Person 3 - Descriptive Statistics")
+    print("4. Person 4 - Filtering & Sorting")
+    print("5. Person 5 - GroupBy & Aggregation")
+    print("6. Person 6 - EDA Insights")
+    print("7. Person 7 - Final Summary & Reporting")
+    print("0. Back")
+
+def handle_pandas_menu():
+    while True:
+        show_pandas_menu()
+        ch = input("\nEnter your choice: ").strip()
+
+        if ch == "0":
+            break
+        elif ch == "1":
+            _run_script("panda/person1_dataloadingunderstanding.py")
+        elif ch == "2":
+            _run_script("panda/person2_datacl.py")
+        elif ch == "3":
+            _run_script("panda/person3_descriptivestatistics.py")
+        elif ch == "4":
+            _run_script("panda/person4_filteringsorting.py")
+        elif ch == "5":
+            _run_script("panda/person5_groupbyaggregation.py")
+        elif ch == "6":
+            _run_script("panda/person6_EDAinsights.py")
+        elif ch == "7":
+            _run_script("panda/person7_finalsummaryreporting.py")
+        else:
+            print("Invalid option.")
 
 def fetch_task4_total_movies():
     rows = _fetch_all("SELECT COUNT(movie_id) AS total_movies FROM public.movies;")
@@ -711,6 +749,9 @@ def _handle_choice(choice: str) -> bool:
 
     elif choice.upper() == "N":
         handle_numpy_menu()
+
+    elif choice.upper() == "D":
+        handle_pandas_menu()    
 
     else:
         print("Invalid option, try again.")
