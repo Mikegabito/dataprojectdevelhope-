@@ -59,12 +59,6 @@ def get_connection():
 # Task 1 – Generic Function (all queries go through here)
 # -------------------------------------------------------
 def run_query(cursor, query):
-    """
-    Executes ANY SQL query and returns results for SELECT queries.
-
-    Task 9 requirement:
-    - If SQL is invalid, catch exception, print friendly message, and do NOT crash.
-    """
     global _LAST_RESULT
 
     start = time.perf_counter()
