@@ -652,18 +652,18 @@ def _handle_choice(choice: str) -> bool:
         _print_rows("TASK5_RENTINGS_PER_MOVIE", rows)
 
     elif choice == "13":
-        # Task 6
+    # Task 6 - Show ALL movies, even those without ratings (LEFT JOIN)
         rows = _fetch_all("""
-            SELECT
-              m.title,
-              AVG(r.rating) AS avg_rating
-            FROM public.movies m
-            JOIN public.rentings r ON r.movie_id = m.movie_id
-            WHERE r.rating IS NOT NULL
-            GROUP BY m.title
-            ORDER BY avg_rating DESC;
-        """)
-        _print_rows("TASK6_MOVIES_WITH_AVG_RATING", rows)
+        SELECT
+          m.title,
+          AVG(r.rating) AS avg_rating
+        FROM public.movies m
+        LEFT JOIN public.rentings r
+          ON r.movie_id = m.movie_id
+        GROUP BY m.title
+        ORDER BY avg_rating DESC NULLS LAST;
+    """)
+        _print_rows("TASK6_MOVIES_WITH_AVG_RATING (ALL MOVIES)", rows)
 
     elif choice == "14":
         # Task 6
