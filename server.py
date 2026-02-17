@@ -102,7 +102,7 @@ def run_query(cursor, query):
         _LAST_RESULT = []
         return []
 
-# -------------------------------------------------------
+# ---------------------------0----------------------------
 # Generic fetch function (keeps the style used in your file)
 # -------------------------------------------------------
 def _fetch_all(query: str) -> List[Dict[str, Any]]:
